@@ -1,6 +1,7 @@
 package com.epsports.platzifakestore.apiService
 
-import com.epsports.platzifakestore.model.ResponseCategories
+import com.epsports.platzifakestore.model.Category
+import com.epsports.platzifakestore.model.Products
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -8,7 +9,10 @@ import retrofit2.http.GET
 
 interface PlatziApiService {
     @GET("categories")
-    suspend fun getCategories(): Response<ResponseCategories>
+    suspend fun getCategories(): Response<List<Category>>
+
+    @GET("categories")
+    suspend fun getProducts(): Response<List<Products>>
 }
 
 object Service {

@@ -18,23 +18,32 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            app:menu="@menu/app_bar_menu"
             app:navigationIcon="@drawable/ic_store"
             app:title="@string/app_name"
-            app:titleTextColor="@color/white"
-            app:menu="@menu/app_bar_menu"/>
+            app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_layout"
+        android:id="@+id/rv_layout_categories"
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar"
+        tools:listitem="@layout/category_item_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_layout_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        tools:listitem="@layout/category_item_layout"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_layout_categories"
+        tools:listitem="@layout/category_item_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

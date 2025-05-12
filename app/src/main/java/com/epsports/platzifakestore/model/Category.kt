@@ -4,17 +4,17 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class ResponseCategories(
-    @SerializedName("creationAt")
-    val creationAt: String? = null,
+data class Category(
     @SerializedName("id")
     val id: Int? = null,
-    @SerializedName("image")
-    val image: String? = null,
     @SerializedName("name")
     val name: String? = null,
-    @SerializedName("slug")
-    val slug: String? = null,
+    @SerializedName("image")
+    val image: String? = null,
+    @SerializedName("creationAt")
+    val creationAt: String? = null,
     @SerializedName("updatedAt")
-    val updatedAt: String? = null
+    val updatedAt: String? = null,
+    @SerializedName("slug")
+    val slug: String? = null
 )

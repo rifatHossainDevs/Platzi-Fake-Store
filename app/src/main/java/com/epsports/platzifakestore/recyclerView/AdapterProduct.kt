@@ -7,8 +7,8 @@ import coil.load
 import com.epsports.platzifakestore.databinding.CategoryItemLayoutBinding
 import com.epsports.platzifakestore.model.Category
 
-class Adapter(private val categoryList: List<Category>?) :
-    RecyclerView.Adapter<Adapter.ViewHolder>() {
+class AdapterProduct(private val categoryList: List<Category>?) :
+    RecyclerView.Adapter<AdapterProduct.ViewHolder>() {
 
     class ViewHolder(val binding: CategoryItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
 
