@@ -44,7 +44,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rv_layout_categories"
-        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:listitem="@layout/product_item_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

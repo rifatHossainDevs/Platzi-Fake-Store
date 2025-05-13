@@ -7,10 +7,17 @@ import coil.load
 import com.epsports.platzifakestore.databinding.CategoryItemLayoutBinding
 import com.epsports.platzifakestore.model.Category
 
-class Adapter(private val categoryList: List<Category>?) :
+class Adapter(
+    private val categoryList: List<Category>?,
+    private val listener: HandleClickListener,
+) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     class ViewHolder(val binding: CategoryItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
+
+    interface HandleClickListener {
+        fun getCategoryName(categoryName: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = CategoryItemLayoutBinding.inflate(
@@ -24,8 +31,15 @@ class Adapter(private val categoryList: List<Category>?) :
         holder.binding.apply {
             ivLogo.load(category?.image)
             tvCategoryName.text = category?.name
+
+            fullLayout.setOnClickListener {
+                category?.slug?.let { categoryName ->
+                    listener.getCategoryName(categoryName)
+                }
+            }
         }
     }
 
     override fun getItemCount(): Int = categoryList?.size ?: 0
+
 }

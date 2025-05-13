@@ -9,7 +9,7 @@ import com.epsports.platzifakestore.recyclerView.Adapter
 import com.epsports.platzifakestore.recyclerView.AdapterProduct
 import com.epsports.platzifakestore.viewModel.HomeViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Adapter.HandleClickListener {
     private lateinit var binding: ActivityMainBinding
     lateinit var adapterCategory: Adapter
     lateinit var adapterProduct: AdapterProduct
@@ -36,9 +36,13 @@ class MainActivity : AppCompatActivity() {
     private fun observeCategories() {
         homeViewModel.categories.observe(this) { categoryList ->
             categoryList?.let {
-                adapterCategory = Adapter(it)
+                adapterCategory = Adapter(it, this@MainActivity)
                 binding.rvLayoutCategories.adapter = adapterCategory
             }
         }
+    }
+
+    override fun getCategoryName(categoryName: String) {
+
     }
 }
