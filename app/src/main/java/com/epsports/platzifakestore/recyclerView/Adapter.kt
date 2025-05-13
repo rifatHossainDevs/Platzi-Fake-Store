@@ -33,8 +33,8 @@ class Adapter(
             tvCategoryName.text = category?.name
 
             fullLayout.setOnClickListener {
-                category?.slug?.let { categoryName ->
-                    listener.getCategoryName(categoryName)
+                category?.slug?.let { categorySlug ->
+                    listener.getCategoryName(categorySlug)
                 }
             }
         }

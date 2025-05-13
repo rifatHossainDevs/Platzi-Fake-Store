@@ -12,13 +12,17 @@ import com.epsports.platzifakestore.model.Category
 import com.epsports.platzifakestore.model.ProductByCategory
 import com.epsports.platzifakestore.model.Products
 
-class AdapterProductByCategory(private val productList: List<ProductByCategory>?) :
+class AdapterProductByCategory(
+    private val productList: List<ProductByCategory>?,
+    private val listener: HandleClickListener
+) :
     RecyclerView.Adapter<AdapterProductByCategory.ViewHolder>() {
 
-    class ViewHolder(val binding: ProductByCategoryItemLayoutBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(val binding: ProductByCategoryItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
-    interface HandleClickListener{
-        
+    interface HandleClickListener {
+        fun getProductTitle(title: String)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,6 +40,14 @@ class AdapterProductByCategory(private val productList: List<ProductByCategory>?
             tvProductName.text = category?.title
             tvProductPrice.text = "$ ${category?.price}"
             tvProductCategory.text = category?.category?.name
+
+            fullLayout.setOnClickListener {
+                category?.title?.let {title->
+
+                    listener.getProductTitle(title)
+
+                }
+            }
         }
     }
 

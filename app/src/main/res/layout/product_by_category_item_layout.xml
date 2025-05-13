@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginVertical="8dp"
+    android:id="@+id/fullLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="12dp"
-    android:layout_height="wrap_content">
+    app:cardElevation="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#41CEC2"
-        android:paddingBottom="4dp"
-        >
+        android:paddingBottom="4dp">
+
         <ImageView
             android:id="@+id/ivImage"
             android:layout_width="match_parent"
@@ -50,13 +51,12 @@
         <ImageView
             android:id="@+id/circle_shape"
             android:layout_width="4dp"
-            android:src="@drawable/shape_circle"
             android:layout_height="4dp"
-            app:layout_constraintStart_toEndOf="@id/tvProductCategory"
-            app:layout_constraintTop_toTopOf="@id/tvProductCategory"
-            app:layout_constraintBottom_toBottomOf="@id/tvProductCategory"
             android:layout_marginStart="4dp"
-            />
+            android:src="@drawable/shape_circle"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductCategory"
+            app:layout_constraintStart_toEndOf="@id/tvProductCategory"
+            app:layout_constraintTop_toTopOf="@id/tvProductCategory" />
 
         <TextView
             android:id="@+id/tvProductPrice"

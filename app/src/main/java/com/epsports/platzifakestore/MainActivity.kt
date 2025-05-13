@@ -1,8 +1,10 @@
 package com.epsports.platzifakestore
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,12 +16,14 @@ import com.epsports.platzifakestore.recyclerView.AdapterProduct
 import com.epsports.platzifakestore.recyclerView.AdapterProductByCategory
 import com.epsports.platzifakestore.viewModel.HomeViewModel
 
-class MainActivity : AppCompatActivity(), Adapter.HandleClickListener {
+class MainActivity : AppCompatActivity(), Adapter.HandleClickListener,
+    AdapterProductByCategory.HandleClickListener {
     private lateinit var binding: ActivityMainBinding
     lateinit var adapterCategory: Adapter
     lateinit var adapterProduct: AdapterProduct
     lateinit var adapterProductByCategory: AdapterProductByCategory
     lateinit var categorySlug: String
+    lateinit var categoryTitle: String
     private val homeViewModel: HomeViewModel by viewModels()
 
     @SuppressLint("SetTextI18n")
@@ -40,10 +44,11 @@ class MainActivity : AppCompatActivity(), Adapter.HandleClickListener {
         }
     }
 
+
     private fun observeProductsByCategory() {
         homeViewModel.productsByCategory.observe(this) { productByCategory ->
             productByCategory?.let {
-                adapterProductByCategory = AdapterProductByCategory(it)
+                adapterProductByCategory = AdapterProductByCategory(it, this@MainActivity)
                 binding.rvLayoutProductByCategory.adapter = adapterProductByCategory
             }
         }
@@ -74,5 +79,15 @@ class MainActivity : AppCompatActivity(), Adapter.HandleClickListener {
         binding.rvLayoutProductByCategory.visibility = View.VISIBLE
         binding.tvAllProducts.visibility = View.VISIBLE
         homeViewModel.getProductByCategory(categorySlug)
+    }
+
+    override fun getProductTitle(title: String) {
+        if (title.isNotEmpty()) {
+            val productDetailIntent = Intent(this@MainActivity, ProductDetails::class.java)
+            productDetailIntent.putExtra(Nodes.TITLE, title)
+            startActivity(productDetailIntent)
+        }else{
+            Toast.makeText(this, "Title is Empty", Toast.LENGTH_SHORT).show()
+        }
     }
 }

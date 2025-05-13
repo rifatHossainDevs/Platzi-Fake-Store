@@ -2,6 +2,7 @@ package com.epsports.platzifakestore.apiService
 
 import com.epsports.platzifakestore.model.Category
 import com.epsports.platzifakestore.model.ProductByCategory
+import com.epsports.platzifakestore.model.ProductDetails
 import com.epsports.platzifakestore.model.Products
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -20,6 +21,11 @@ interface PlatziApiService {
     suspend fun getProductsByCategory(
         @Query("categorySlug") categorySlug: String
     ): Response<List<ProductByCategory>>
+
+    @GET("products/")
+    suspend fun getProductsByTitle(
+        @Query("title") productTitle: String
+    ): Response<List<ProductDetails>>
 }
 
 object Service {
