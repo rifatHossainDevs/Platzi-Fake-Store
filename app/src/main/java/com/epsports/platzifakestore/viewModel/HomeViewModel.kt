@@ -19,6 +19,7 @@ class HomeViewModel : ViewModel() {
 
     init {
         getCategories()
+        getProducts()
     }
 
     fun getCategories() {

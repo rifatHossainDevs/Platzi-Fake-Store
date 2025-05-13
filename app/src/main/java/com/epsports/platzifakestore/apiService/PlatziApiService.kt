@@ -11,7 +11,7 @@ interface PlatziApiService {
     @GET("categories")
     suspend fun getCategories(): Response<List<Category>>
 
-    @GET("categories")
+    @GET("products")
     suspend fun getProducts(): Response<List<Products>>
 }
 
