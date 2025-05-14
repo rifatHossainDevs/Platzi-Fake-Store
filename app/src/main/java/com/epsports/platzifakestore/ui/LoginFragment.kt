@@ -15,6 +15,7 @@ import com.epsports.platzifakestore.databinding.FragmentLoginBinding
 import com.epsports.platzifakestore.model.RequestLogin
 import com.epsports.platzifakestore.viewModel.AuthViewModel
 import androidx.core.content.edit
+import com.epsports.platzifakestore.Nodes
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -55,8 +56,8 @@ class LoginFragment : Fragment() {
             if (responseDTO != null) {
                 sharedPreference.edit {
 
-                    putString("accessToken", responseDTO.accessToken)
-                    putString("refreshToken", responseDTO.refreshToken)
+                    putString(Nodes.ACCESS_TOKEN, responseDTO.accessToken)
+                    putString(Nodes.REFRESH_TOKEN, responseDTO.refreshToken)
                 }
 
                 Toast.makeText(requireContext(), "Login Successful", Toast.LENGTH_SHORT).show()
