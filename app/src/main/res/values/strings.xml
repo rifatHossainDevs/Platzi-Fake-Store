@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Platzi Fake Store</string>
+    <string name="categories">Categories</string>
+    <string name="all_products">All Products</string>
+    <string name="see_all_products">See All Products</string>
+    <string name="product_name">Product Name</string>
+    <string name="clothes">Clothes</string>
+    <string name="_10_taka">10 Taka</string>
+    <string name="text_description">Text Description</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

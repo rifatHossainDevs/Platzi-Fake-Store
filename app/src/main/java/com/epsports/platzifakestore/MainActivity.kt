@@ -7,23 +7,19 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Visibility
 import com.epsports.platzifakestore.databinding.ActivityMainBinding
-import com.epsports.platzifakestore.model.ProductByCategory
 import com.epsports.platzifakestore.recyclerView.Adapter
 import com.epsports.platzifakestore.recyclerView.AdapterProduct
 import com.epsports.platzifakestore.recyclerView.AdapterProductByCategory
 import com.epsports.platzifakestore.viewModel.HomeViewModel
 
 class MainActivity : AppCompatActivity(), Adapter.HandleClickListener,
-    AdapterProductByCategory.HandleClickListener {
+    AdapterProductByCategory.HandleClickListener, AdapterProduct.HandleClickListener {
     private lateinit var binding: ActivityMainBinding
     lateinit var adapterCategory: Adapter
     lateinit var adapterProduct: AdapterProduct
     lateinit var adapterProductByCategory: AdapterProductByCategory
     lateinit var categorySlug: String
-    lateinit var categoryTitle: String
     private val homeViewModel: HomeViewModel by viewModels()
 
     @SuppressLint("SetTextI18n")
@@ -57,7 +53,7 @@ class MainActivity : AppCompatActivity(), Adapter.HandleClickListener,
     private fun observeProducts() {
         homeViewModel.products.observe(this) { productList ->
             productList?.let {
-                adapterProduct = AdapterProduct(it)
+                adapterProduct = AdapterProduct(it, this)
                 binding.rvLayoutProduct.adapter = adapterProduct
             }
         }
@@ -83,6 +79,16 @@ class MainActivity : AppCompatActivity(), Adapter.HandleClickListener,
 
     override fun getProductTitle(title: String) {
         if (title.isNotEmpty()) {
+            val productDetailIntent = Intent(this@MainActivity, ProductDetails::class.java)
+            productDetailIntent.putExtra(Nodes.TITLE, title)
+            startActivity(productDetailIntent)
+        }else{
+            Toast.makeText(this, "Title is Empty", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun getTitle(title: String) {
+        if (title.isNotEmpty()){
             val productDetailIntent = Intent(this@MainActivity, ProductDetails::class.java)
             productDetailIntent.putExtra(Nodes.TITLE, title)
             startActivity(productDetailIntent)

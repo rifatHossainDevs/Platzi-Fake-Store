@@ -1,20 +1,45 @@
 package com.epsports.platzifakestore
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import coil.load
+import com.epsports.platzifakestore.databinding.ActivityProductDetailsBinding
+import com.epsports.platzifakestore.viewModel.HomeViewModel
 
 class ProductDetails : AppCompatActivity() {
+    private lateinit var binding: ActivityProductDetailsBinding
+    val viewModel: HomeViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_product_details)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = ActivityProductDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val title = intent.getStringExtra(Nodes.TITLE)
+
+        if (title != null) {
+            viewModel.getProductByTitle(title)
+        }
+
+        observeListener()
+
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun observeListener() {
+        viewModel.productsByTitle.observe(this) { productDetails ->
+            productDetails.firstOrNull().let {
+                with(binding) {
+                    ivProductImage.load(it?.images?.get(0))
+                    tvProductName.text = it?.title
+                    tvProductPrice.text = "৳ ${it?.price}"
+                    tvDescription.text = it?.description
+                    tvProductCategory.text = it?.category?.name
+                }
+            }
+
         }
     }
 }

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
 
 @Keep
-data class ProductDetails(
+data class ProductDetail(
     @SerializedName("category")
     val category: CategoryX? = CategoryX(),
     @SerializedName("creationAt")

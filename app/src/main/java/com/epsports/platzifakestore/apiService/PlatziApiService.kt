@@ -2,15 +2,22 @@ package com.epsports.platzifakestore.apiService
 
 import com.epsports.platzifakestore.model.Category
 import com.epsports.platzifakestore.model.ProductByCategory
-import com.epsports.platzifakestore.model.ProductDetails
+import com.epsports.platzifakestore.model.ProductDetail
 import com.epsports.platzifakestore.model.Products
+import com.epsports.platzifakestore.model.RequestLogin
+import com.epsports.platzifakestore.model.ResponseDTO
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface PlatziApiService {
+    @POST("auth/login")
+    suspend fun login(@Body requestLogin: RequestLogin): Response<ResponseDTO>
+
     @GET("categories")
     suspend fun getCategories(): Response<List<Category>>
 
@@ -19,13 +26,15 @@ interface PlatziApiService {
 
     @GET("products/")
     suspend fun getProductsByCategory(
-        @Query("categorySlug") categorySlug: String
+        @Query("categorySlug") categorySlug: String,
     ): Response<List<ProductByCategory>>
 
     @GET("products/")
     suspend fun getProductsByTitle(
-        @Query("title") productTitle: String
-    ): Response<List<ProductDetails>>
+        @Query("title") productTitle: String,
+    ): Response<List<ProductDetail>>
+
+
 }
 
 object Service {

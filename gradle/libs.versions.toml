@@ -13,6 +13,8 @@ retrofit_version = "2.10.0"
 coroutines_version = "1.9.0"
 lifecycle_version = "2.9.0"
 coil = "2.7.0"
+navigationFragmentKtx = "2.9.0"
+navigationUiKtx = "2.9.0"
 
 
 
@@ -32,6 +34,8 @@ retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-
 lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle_version" }
 lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle_version" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 
 [plugins]

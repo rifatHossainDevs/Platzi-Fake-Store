@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.epsports.platzifakestore.databinding.CategoryItemLayoutBinding
 import com.epsports.platzifakestore.databinding.ProductByCategoryItemLayoutBinding
-import com.epsports.platzifakestore.databinding.ProductItemLayoutBinding
-import com.epsports.platzifakestore.model.Category
 import com.epsports.platzifakestore.model.ProductByCategory
-import com.epsports.platzifakestore.model.Products
 
 class AdapterProductByCategory(
     private val productList: List<ProductByCategory>?,
@@ -38,7 +34,7 @@ class AdapterProductByCategory(
         holder.binding.apply {
             ivImage.load(category?.images?.get(0))
             tvProductName.text = category?.title
-            tvProductPrice.text = "$ ${category?.price}"
+            tvProductPrice.text = "৳ ${category?.price}"
             tvProductCategory.text = category?.category?.name
 
             fullLayout.setOnClickListener {

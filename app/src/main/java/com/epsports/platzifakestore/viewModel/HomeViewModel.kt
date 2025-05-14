@@ -1,6 +1,5 @@
 package com.epsports.platzifakestore.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.epsports.platzifakestore.apiService.Service
 import com.epsports.platzifakestore.model.Category
 import com.epsports.platzifakestore.model.ProductByCategory
-import com.epsports.platzifakestore.model.ProductDetails
+import com.epsports.platzifakestore.model.ProductDetail
 import com.epsports.platzifakestore.model.Products
 import kotlinx.coroutines.launch
 
@@ -22,8 +21,8 @@ class HomeViewModel : ViewModel() {
     private val _productsByCategory = MutableLiveData<List<ProductByCategory>>()
     val productsByCategory: LiveData<List<ProductByCategory>> = _productsByCategory
 
-    private val _productsByTitle = MutableLiveData<List<ProductDetails>>()
-    val productsByTitle: LiveData<List<ProductDetails>> = _productsByTitle
+    private val _productsByTitle = MutableLiveData<List<ProductDetail>>()
+    val productsByTitle: LiveData<List<ProductDetail>> = _productsByTitle
 
     init {
         getCategories()
