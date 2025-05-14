@@ -16,7 +16,7 @@ import retrofit2.http.Query
 
 interface PlatziApiService {
     @POST("auth/login")
-    suspend fun login(@Body requestLogin: RequestLogin): Response<ResponseDTO>
+    suspend fun authLogin(@Body requestLogin: RequestLogin): Response<ResponseDTO>
 
     @GET("categories")
     suspend fun getCategories(): Response<List<Category>>

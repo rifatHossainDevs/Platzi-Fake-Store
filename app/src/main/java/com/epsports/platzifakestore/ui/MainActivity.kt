@@ -1,4 +1,4 @@
-package com.epsports.platzifakestore
+package com.epsports.platzifakestore.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.epsports.platzifakestore.Nodes
 import com.epsports.platzifakestore.databinding.ActivityMainBinding
 import com.epsports.platzifakestore.recyclerView.Adapter
 import com.epsports.platzifakestore.recyclerView.AdapterProduct

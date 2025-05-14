@@ -1,10 +1,11 @@
-package com.epsports.platzifakestore
+package com.epsports.platzifakestore.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
+import com.epsports.platzifakestore.Nodes
 import com.epsports.platzifakestore.databinding.ActivityProductDetailsBinding
 import com.epsports.platzifakestore.viewModel.HomeViewModel
 
