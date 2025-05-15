@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ui.LoginFragment">
 
     <ImageView
@@ -59,6 +60,16 @@
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/black"
         android:text="Login"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="#000000"
+        android:text="Register"
         android:layout_marginTop="16dp"
         android:textSize="20sp" />
 </LinearLayout>
