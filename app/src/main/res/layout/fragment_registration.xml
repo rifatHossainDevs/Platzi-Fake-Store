@@ -24,6 +24,24 @@
         android:textSize="28sp"
         android:textStyle="bold" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:hint="Name"
+        app:counterTextAppearance="@style/TextAppearance.Material3.TitleSmall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="4dp"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -63,13 +81,42 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:hint="Avatar Link"
+        app:counterTextAppearance="@style/TextAppearance.Material3.TitleSmall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_avatar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawablePadding="4dp"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:backgroundTint="@color/black"
+        android:text="Registration"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:backgroundTint="@color/black"
-        android:text="Registration"
+        android:text="Login"
         android:layout_marginTop="16dp"
         android:textSize="20sp" />
 
