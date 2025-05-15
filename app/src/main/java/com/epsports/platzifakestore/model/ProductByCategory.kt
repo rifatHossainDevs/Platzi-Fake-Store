@@ -13,7 +13,7 @@ data class ProductByCategory(
     @SerializedName("description")
     val description: String? = "",
     @SerializedName("id")
-    val id: Int? = 0,
+    val id: Long? = 0L,
     @SerializedName("images")
     val images: List<String>? = listOf(),
     @SerializedName("price")

@@ -17,7 +17,7 @@ data class ProductDetail(
     @SerializedName("images")
     val images: List<String>? = listOf(),
     @SerializedName("price")
-    val price: Int? = 0,
+    val price: Long? = 0L,
     @SerializedName("slug")
     val slug: String? = "",
     @SerializedName("title")
